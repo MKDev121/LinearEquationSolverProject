@@ -1,6 +1,7 @@
 #Main python file where the calculation happens
 import numpy as np
-variables_num=int(input("Enter the number of independent variables of your system of equations: "))
+import math
+variables_num=eval(input("Enter the number of independent variables of your system of equations: "))
 variables=[]
 i=0
 while i<variables_num:
@@ -21,7 +22,7 @@ def matrix_creator():
         j=0
         coeff_matrix.append([])
         while j<variables_num:
-            coeff=int(input(f"Enter the coeffiecent no {j+1} of equation {i+1}: "))
+            coeff=eval(input(f"Enter the coeffiecent no {j+1} of equation {i+1}: "))
             coeff_matrix[i].append(coeff)
             j+=1
         
@@ -29,7 +30,7 @@ def matrix_creator():
     #Filling constant matrix
     k=0
     while k<variables_num:
-        constant=int(input(f"Enter the constant of equation {k+1}: "))
+        constant=eval(input(f"Enter the constant of equation {k+1}: "))
         constant_matrix.append(constant)
         k+=1
     coeff_matrix=np.array(coeff_matrix)
@@ -55,7 +56,11 @@ equation_solver(coeff_matrix,constant_matrix)
 
 #Printing out the solution
 for solution in solutions:
+    
     print(solution)
+
+input("Press enter To Close The Program")
+
 
 
 
